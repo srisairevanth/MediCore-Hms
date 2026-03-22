@@ -32,7 +32,7 @@ export default function Login() {
         <form onSubmit={handle} className="form-grid">
           <div className="form-group">
             <label>Email</label>
-            <input type="email" placeholder="admin@hms.com" required
+            <input type="email" placeholder="example@email.com" required
               value={form.email} onChange={e => setForm({...form, email: e.target.value})}/>
           </div>
           <div className="form-group">
@@ -45,9 +45,6 @@ export default function Login() {
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
-        <div className="demo-hint">
-          Demo: <strong>admin@hms.com</strong> / <strong>admin123</strong>
-        </div>
         <div className="auth-link">No account? <Link to="/register">Register here</Link></div>
       </div>
     </div>
