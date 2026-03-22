@@ -1,0 +1,4 @@
+package com.hms.repository;
+import com.hms.entity.Treatment;
+import org.springframework.data.jpa.repository.JpaRepository;
+public interface TreatmentRepository extends JpaRepository<Treatment,Long> {}
