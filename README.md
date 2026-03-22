@@ -1,13 +1,17 @@
 # 🏥 MediCore HMS v3 — Spring Boot + Vite React
 
-Full-stack Hospital Management System with separate backend (Railway) and frontend (Vercel).
+Full-stack Hospital Management System with separate backend (Render) and frontend (Vercel).
+
+**✨ [Live Demo](https://medi-core-hms-two.vercel.app/)**
+
+![Application Demo](full_app_test.webp)
 
 ---
 
 ## 📁 Structure
 ```
 hms-v3/
-├── backend/   → Spring Boot REST API  → Deploy on Railway
+├── backend/   → Spring Boot REST API  → Deploy on Render
 └── frontend/  → Vite + React SPA      → Deploy on Vercel
 ```
 
@@ -35,11 +39,13 @@ App runs at: http://localhost:5173
 
 ---
 
-## ☁️ Deploy Backend to Railway
+## ☁️ Deploy Backend to Render
 
 1. Push `backend/` folder to a GitHub repo
-2. Go to **railway.app** → New Project → Deploy from GitHub
-3. Add environment variables in Railway dashboard:
+2. Go to **[dashboard.render.com](https://dashboard.render.com)** → New **Web Service**
+3. Select **Build and deploy from a Git repository** → connect repo
+4. Set **Root Directory** to `backend`. Environment will auto-detect as `Docker` (due to the included Java 21 `Dockerfile`).
+5. Add environment variables:
 
 | Variable | Value |
 |----------|-------|
@@ -49,8 +55,8 @@ App runs at: http://localhost:5173
 | `JWT_SECRET` | any long random string |
 | `CORS_ORIGINS` | `https://your-app.vercel.app` |
 
-4. Railway auto-detects Spring Boot and deploys
-5. Note your Railway URL: `https://xxx.up.railway.app`
+6. Click **Create Web Service**
+7. Note your Render URL: `https://xxx.onrender.com`
 
 ---
 
@@ -63,11 +69,11 @@ App runs at: http://localhost:5173
 
 | Variable | Value |
 |----------|-------|
-| `VITE_API_URL` | `https://xxx.up.railway.app` |
+| `VITE_API_URL` | `https://xxx.onrender.com` |
 
 5. Deploy → get your Vercel URL
 
-6. Go back to Railway → update `CORS_ORIGINS` with your Vercel URL → Redeploy
+6. Go back to Render → update `CORS_ORIGINS` environment variable with your new Vercel URL.
 
 ---
 
@@ -111,7 +117,7 @@ All endpoints except `/api/auth/**` require: `Authorization: Bearer <token>`
 - React Hot Toast
 
 **Deploy**
-- Backend → Railway
+- Backend → Render (Docker + Java 21)
 - Frontend → Vercel
 - Database → Neon (free PostgreSQL)
 
